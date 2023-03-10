@@ -23,10 +23,25 @@ const btnwrp = document.getElementById('btnwrp');
 const diswrp = document.getElementById('diswrp');
 const arraywrp = ["nowrap", "wrap", "wrap-reverse"];
 
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+
 let index = 0;
 
 reset.addEventListener('click', () => {
-    boxgrp.style.flexDirection = "row";
+    boxgrp.style.flexDirection = 'row';
     boxgrp.style.justifyContent = "flex-start";
     boxgrp.style.alignItems = "stretch";
     boxgrp.style.alignContent = "flex-start";
