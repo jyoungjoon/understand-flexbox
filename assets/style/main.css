@@ -1,0 +1,76 @@
+header {
+    display: block;
+}
+
+.firstList {
+    line-height: 1.5em;
+}
+
+main {
+    display: inline-block;
+}
+
+.box {
+    display: flex;
+    border: 5px solid #000;
+    width: 100%;
+    height: 50vh;
+    text-align: center;
+}
+
+.display {
+    display: inline-block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: auto;
+    margin-left: 40px;
+    margin-bottom: 2em;
+}
+
+.box-item {
+    color: white;
+    border: 1px solid #000;
+    width: 50px;
+    height: 50px;
+}
+
+.btn {
+    display: inline-block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: auto;
+    margin: 20px;
+}
+
+#boxitm1 {
+    background: red;
+}
+
+#boxitm2 {
+    background: orange;
+}
+
+#boxitm3 {
+    color: black;
+    background: yellow;
+}
+
+#boxitm4 {
+    background: green;
+}
+
+#boxitm5 {
+    background: blue;
+}
+
+#boxitm6 {
+    background: navy;
+}
+
+#boxitm7 {
+    background: purple;
+}   
