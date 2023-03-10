@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style/main.css">
+    <title>Understand Flexbox</title>
+</head>
+
+<body>
+    <header>
+        <h1>Understand Flexbox: Flexbox Simulator</h1>
+    </header>
+    <main>
+        <h2>Flexbox Cheat Sheet</h2>
+        
+        <h3>Flexbox is a layout module that allows you to arrange items within a container. The following properties apply to the container:</h3>
+
+        <ul class="firstList"><h4>Flexbox properties that can be applied to the flex container:</h4>
+
+        <li><dt>'flex-direction:'</dt>
+        <dd>Sets the direction of the main axis, which can be row, column, row-reverse, or column-reverse. Reversing the direction flips the starting point on the main axis.</dd>
+        </li>
+        <li><dt>'justify-content:'</dt>
+        <dd>Determines how the items are aligned on the main axis. The available values are flex-start, space-around, space-between, and center.</dd>
+        </li>
+        <li><dt>'align-items:'</dt>
+        <dd>Specifies how the items are aligned on the cross axis. The options are baseline, stretch, flex-start, flex-end, and center. The cross axis is the opposite of the main axis.</dd>
+        </li>
+        <li><dt>'align-content:'</dt>
+        <dd>Determines how the items are aligned on the cross axis when there is extra space. The values include flex-start, flex-end, center, space-between, and space-around.</dd>
+        </li>
+        <li><dt>'flex-wrap:'</dt>
+        <dd>Specifies whether the items should wrap when they exceed the container's width or height. The options are nowrap, wrap, and wrap-reverse.</dd>
+        </li>
+        <li><dt>'flex-flow:'</dt>
+        <dd>A shorthand property for flex-direction and flex-wrap. You can set both properties at once with this property.</dd>
+        </li>
+        </ul>
+
+        <h4>Flexbox properties that can be applied to individual items:</h4>
+
+        <dt>'align-self:'</dt>
+        <dd>Sets the alignment of a single item on the cross axis. The values are flex-start, flex-end, center, stretch, and baseline.</dd>
+        <dt>flex-grow:</dt>
+        <dd>Determines how much an item should grow if there is extra space on the main axis. The value is a ratio.</dd>
+        <dt>flex-shrink:</dt>
+        <dd>Specifies how much an item should shrink if there is not enough space on the main axis. The value is also a ratio.</dd>
+        <dt>flex-basis:</dt>
+        <dd>Sets the initial size of an item before it enters the flexbox layout. This property is different from width because it applies to the height when the flex-direction is column.</dd>
+        <dt>flex:</dt>
+        <dd>A shorthand property for flex-grow, flex-shrink, and flex-basis. You can use it like this: flex: 1 0 auto; which sets flex-grow to 1, flex-shrink to 0, and flex-basis to auto.</dd>
+        <dt>order:</dt>
+        <dd>Specifies the order in which the items are displayed. The default value is 0, and you can use negative or positive values to change the order.</dd>
+
+        <h4>Setting flex items width to prevent shrinking too much:</h4>
+        <dt>min-width and min-height:</dt>
+        <dd>These properties can be used to set a minimum width or height for flex items. This is useful when you want to prevent an item from shrinking too much.</dd>
+
+        <h2>Flexbox Simulator</h2>
+        
+        <button class="btn" id="addBox">Add Box</button>
+        <button class="btn" id="deleteBox">Delete Box</button>
+        <button class="btn" id="reset">Reset</button>
+
+        <section class="sect" id="sectgrp">
+            <button class="btn" id="btndir">flex-direction</button>
+            <button class="btn" id="btnjst">justify-content</button>
+            <button class="btn" id="btnitm">align-items</button>
+            <button class="btn" id="btncnt">align-content</button>
+            <button class="btn" id="btnwrp">flex-wrap</button>
+            <input type="text" class="btn" id="btnflw">flex-flow</button>
+        </section>
+
+        <section class="sect" id="sectdis">
+        <span class="display" id="disdir">insert</span>
+        <span class="display" id="disjst">insert</span>
+        <span class="display" id="disitm">insert</span>
+        <span class="display" id="discnt">insert</span>
+        <span class="display" id="diswrp">insert</span>
+        <span class="display" id="disflw">insert</span>
+        </section>
+
+        <section class="box" id="boxgrp">
+            <div class="box-item" id="boxitm1">1</div>
+            <div class="box-item" id="boxitm2">2</div>
+            <div class="box-item" id="boxitm3">3</div>
+            <div class="box-item" id="boxitm4">4</div>
+            <div class="box-item" id="boxitm5">5</div>
+            <div class="box-item" id="boxitm6">6</div>
+            <div class="box-item" id="boxitm7">7</div>
+        </section>
+
+        <section class="sect" id="indvgrp">
+            <button class="btn" id="btngrw">X</button>
+            <button class="btn" id="btnshr">X</button>
+            <button class="btn" id="btnbss">X</button>
+            <button class="btn" id="btnslf">X</button>
+            <button class="btn" id="btnord">X</button>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
