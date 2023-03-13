@@ -3,6 +3,10 @@
     font-family: 'Yantramanav', sans-serif;
 }
 
+body {
+    margin: 3em;
+}
+
 h2 {
     text-transform: uppercase;
     color: #00A7E1;
