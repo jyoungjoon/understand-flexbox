@@ -72,6 +72,13 @@
         </ul>
         
         <h2>Flexbox Simulator</h2>
+        <p>Box Size : <span class="blank">(leave it blank to set it to default)</span></p>
+        <label for="boxWidth">Set your box width in px: </label><input type="text" name="boxWidth" id="boxWidth" placeholder="Width">
+        <br>
+        <br>
+        <label for="boxHeight">Set your box  height in px: </label><input type="text" name="boxHeight" id="boxHeight" placeholder="Height">
+        <br>
+        <br>
         
         <button class="btn" id="addBox">Add Box</button>
         <button class="btn" id="deleteBox">Delete Box</button>
@@ -81,36 +88,29 @@
             <button class="btn" id="btndir">flex-direction</button>
             <button class="btn" id="btnjst">justify-content</button>
             <button class="btn" id="btnitm">align-items</button>
-            <button class="btn" id="btncnt">align-content</button>
             <button class="btn" id="btnwrp">flex-wrap</button>
-            <input type="text" class="btn" id="btnflw">flex-flow</button>
+            <button class="btn" id="btncnt">align-content</button>
+            <br>
         </section>
 
         <section class="sect" id="sectdis">
-        <span class="display" id="disdir">insert</span>
-        <span class="display" id="disjst">insert</span>
-        <span class="display" id="disitm">insert</span>
-        <span class="display" id="discnt">insert</span>
-        <span class="display" id="diswrp">insert</span>
-        <span class="display" id="disflw">insert</span>
+        <span class="display" id="disdir"></span>
+        <span class="display" id="disjst"></span>
+        <span class="display" id="disitm"></span>
+        <span class="display" id="diswrp"></span>
+        <span class="display" id="discnt"></span>
+
         </section>
 
         <section class="box" id="boxgrp">
-            <div class="box-item" id="boxitm1">1</div>
-            <div class="box-item" id="boxitm2">2</div>
-            <div class="box-item" id="boxitm3">3</div>
-            <div class="box-item" id="boxitm4">4</div>
-            <div class="box-item" id="boxitm5">5</div>
-            <div class="box-item" id="boxitm6">6</div>
-            <div class="box-item" id="boxitm7">7</div>
         </section>
 
         <section class="sect" id="indvgrp">
-            <button class="btn" id="btngrw">X</button>
-            <button class="btn" id="btnshr">X</button>
-            <button class="btn" id="btnbss">X</button>
-            <button class="btn" id="btnslf">X</button>
-            <button class="btn" id="btnord">X</button>
+            <button class="btn" id="btngrw">flex-grow</button>
+            <button class="btn" id="btnshr">flex-shrink</button>
+            <button class="btn" id="btnbss">flex-basis</button>
+            <button class="btn" id="btnslf">align-self</button>
+            <button class="btn" id="btnord">order</button>
         </section>
 
     </main>

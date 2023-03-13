@@ -3,6 +3,15 @@
     font-family: 'Yantramanav', sans-serif;
 }
 
+h2 {
+    text-transform: uppercase;
+    color: #00A7E1;
+}
+
+.blank {
+    color: grey;
+}
+
 .accent {
     color: black;
 }
@@ -47,8 +56,8 @@ main {
 .box-item {
     color: white;
     border: 1px solid #000;
-    width: 50px;
-    height: 50px;
+    width: auto;
+    height: auto;
 }
 
 .btn {
@@ -60,35 +69,6 @@ main {
     height: auto;
     margin: 20px;
 }
-
-#boxitm1 {
-    background: red;
-}
-
-#boxitm2 {
-    background: orange;
-}
-
-#boxitm3 {
-    color: black;
-    background: yellow;
-}
-
-#boxitm4 {
-    background: green;
-}
-
-#boxitm5 {
-    background: blue;
-}
-
-#boxitm6 {
-    background: navy;
-}
-
-#boxitm7 {
-    background: purple;
-}   
 
 .collapsible {
     background-color: #6DC6DC;
