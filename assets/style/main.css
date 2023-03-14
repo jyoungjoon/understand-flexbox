@@ -8,9 +8,21 @@
     margin: 3em;
   }
   
-  h2 {
+  h2, h3 {
     text-transform: uppercase;
     color: #00A7E1;
+  }
+
+  .propertiesContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 2em;
+  }
+
+  input[type="radio"]{
+    margin-left: 1.5em;
+    margin-right: 0.5em;
   }
   
   .blank {

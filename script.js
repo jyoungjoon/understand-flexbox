@@ -1,3 +1,5 @@
+
+// script for the collapsible buttons
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
@@ -13,13 +15,24 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
-const reset = document.getElementById('reset');
-const boxgrp = document.getElementById('boxgrp')
+// assigning values to the buttons
+var boxgrp = document.getElementById('boxgrp')
 
 const box = {
   addBox: document.getElementById('addBox'),
   deleteBox: document.getElementById('deleteBox')
 }
+
+const containerHeight = document.getElementById('containerHeight');
+const containerWidth = document.getElementById('containerWidth');
+if (containerHeight===true || containerWidth===true) {
+  boxgrp.style.height = containerHeight + 'px';
+  boxgrp.style.width = containerWidth + 'px';
+}
+
+
+
+
 // This feature adds box-items with the click of a button
 box.addBox.addEventListener('click', createBox);
 
@@ -32,7 +45,12 @@ box.addBox.addEventListener('click', createBox);
     boxgrp.appendChild(newBox);
     const randomColor = Math.floor(Math.random()*16777215).toString(16)
     newBox.style.backgroundColor = '#' + randomColor;
+    const boxWidth = document.getElementById('boxWidth').value;
+    newBox.style.width = boxWidth + 'px';
+    const boxHeight = document.getElementById('boxHeight').value;
+    newBox.style.height = boxHeight + 'px';
   }
+
 // This feature removes box-items with the click of a button
   box.deleteBox.addEventListener('click', deleteBox);
 
@@ -44,52 +62,152 @@ box.addBox.addEventListener('click', createBox);
     }
   }
 
+// // This feature allows the user to change the flex-direction property with selected values from the radio buttons
+
+// const flexdir = document.getElementsByName('directions');
+
+// for (let i = 0; i < flexdir.length; i++) {
+//   flexdir[i].addEventListener('click', () => {
+//     boxgrp.style.flexDirection = flexdir[i].value;
+//   });
+// }
+
+// // This feature allows the user to change the justify-content property with selected values from the radio buttons
+
+// const flexjst = document.getElementsByName('justify');
+
+// for (let i = 0; i < flexjst.length; i++) {
+//   flexjst[i].addEventListener('click', () => {
+//     boxgrp.style.justifyContent = flexjst[i].value;
+//   });
+// }
+
+// // This feature allows the user to change the align-items property with selected values from the radio buttons
+
+// const flexitm = document.getElementsByName('alignI');
+
+// for (let i = 0; i < flexitm.length; i++) {
+//   flexitm[i].addEventListener('click', () => {
+//     boxgrp.style.alignItems = flexitm[i].value;
+//   });
+// }
+
+// // This feature allows the user to change the align-content property with selected values from the radio buttons
+
+// const flexcnt = document.getElementsByName("alignC")
+
+// for (let i = 0; i < flexcnt.length; i++) {
+//   flexcnt[i].addEventListener('click', () => {
+//     boxgrp.style.alignContent = flexcnt[i].value;
+//   });
+// }
+
+// // This feature allows the user to change the flex-wrap property with selected values from the radio buttons
+
+// const flexwrp = document.getElementsByName("wrap")
+
+// for (let i = 0; i < flexwrp.length; i++) {
+//   flexwrp[i].addEventListener('click', () => {
+//     // Update flex-wrap property
+//     boxgrp.style.flexWrap = flexwrp[i].value;
+
+//     // Check if flex-wrap value is other than "nowrap"
+//     if (flexwrp[i].value !== "nowrap") {
+//       // Enable align-content radio buttons
+//       enableRadioButtons(flexcnt);
+//     } else {
+//       // Disable align-content radio buttons
+//       disableRadioButtons(flexcnt);
+//     }
+//   });
+// }
+
+// // Helper function to enable radio buttons
+// function enableRadioButtons(radios) {
+//   for (let i = 0; i < radios.length; i++) {
+//     radios[i].disabled = false;
+//   }
+// }
+
+// // Helper function to disable radio buttons
+// function disableRadioButtons(radios) {
+//   for (let i = 0; i < radios.length; i++) {
+//     radios[i].disabled = true;
+//     radios[i].checked = false;
+//     boxgrp.style.alignContent = '';
+//   }
+// }
+
+// // Initially disable align-content radio buttons
+// disableRadioButtons(flexcnt);
 
 
-const dir = {
-  btn: document.getElementById('btndir'),
-  dis: document.getElementById('disdir'),
-  array: ["row", "row-reverse", "column", "column-reverse"]
-}
+// ****Short and simpler version of the radio button selector:
 
-const jst = {
-  btn: document.getElementById('btnjst'),
-  dis: document.getElementById('disjst'),
-  array: ["flex-start", "flex-end", "center", "space-between", "space-around", "space-evenly"]
-}
+document.querySelectorAll('[name*="directions"], [name^="justify"], [name^="alignI"], [name^="alignC"], [name^="wrap"]').forEach(radio => {
+  radio.addEventListener('click', () => {
+    switch (radio.name) {
+      case 'directions':
+        boxgrp.style.flexDirection = radio.value;
+        break;
+      case 'justify':
+        boxgrp.style.justifyContent = radio.value;
+        break;
+      case 'alignI':
+        boxgrp.style.alignItems = radio.value;
+        break;
+      case 'alignC':
+        boxgrp.style.alignContent = radio.value;
+        break;
+      case 'wrap':
+        boxgrp.style.flexWrap = radio.value;
+        document.getElementsByName('alignC').forEach(alignRadio => {
+          alignRadio.disabled = (radio.value === 'nowrap');
+        });
+        break;
+    }
+  });
+});
 
-const itm = {
-  btn: document.getElementById('btnitm'),
-  dis: document.getElementById('disitm'),
-  array: ["stretch", "flex-start", "flex-end", "center", "baseline"]
-}
+document.getElementsByName('alignC').forEach(alignRadio => {
+  alignRadio.disabled = true;
+});
 
-const cnt = {
-  btn: document.getElementById('btncnt'),
-  dis: document.getElementById('discnt'),
-  array: ["flex-start", "flex-end", "center", "space-between", "space-around", "space-evenly"]
-}
 
-const wrp = {
-  btn: document.getElementById('btnwrp'),
-  dis: document.getElementById('diswrp'),
-  array: ["nowrap", "wrap", "wrap-reverse"]
-}
 
+
+// Reset Button Functionality - Start
+
+const reset = document.getElementById('reset');
 
 let index = 0;
 
 reset.addEventListener('click', () => {
+  const flexdir = document.getElementsByName('directions');
+  const flexjst = document.getElementsByName('justify');
+  const flexitm = document.getElementsByName('alignI');
+  const flexcnt = document.getElementsByName('alignC');
+  const flexwrp = document.getElementsByName('wrap');
+  for (let i = 0; i < flexdir.length; i++) {
+    flexdir[i].checked = false;
+  }
+  for (let i = 0; i < flexjst.length; i++) {
+    flexjst[i].checked = false;
+  }
+  for (let i = 0; i < flexitm.length; i++) {
+    flexitm[i].checked = false;
+  }
+  for (let i = 0; i < flexcnt.length; i++) {
+    flexcnt[i].checked = false;
+  }
+  for (let i = 0; i < flexwrp.length; i++) {
+    flexwrp[i].checked = false;
+  }
     boxgrp.style.flexDirection = '';
     boxgrp.style.justifyContent = '';
     boxgrp.style.alignItems = '';
     boxgrp.style.alignContent = '';
     boxgrp.style.flexWrap = '';
-    dir.dis.innerText = '';
-    jst.dis.innerText = '';
-    itm.dis.innerText = '';
-    cnt.dis.innerText = '';
-    wrp.dis.innerText = '';
     index = 0;
     function resetBox () {
       const x = document.getElementById('boxgrp');
@@ -100,32 +218,4 @@ reset.addEventListener('click', () => {
     resetBox();    
 });
 
-dir.btn.addEventListener('click', () => {
-    boxgrp.style.flexDirection = dir.array[index]
-    dir.dis.innerText = dir.array[index]
-    index = (index + 1) % dir.array.length;
-});
-
-jst.btn.addEventListener('click', () => {
-    boxgrp.style.justifyContent = jst.array[index]
-    jst.dis.innerText = jst.array[index];
-    index = (index + 1) % jst.array.length;
-});
-
-itm.btn.addEventListener('click', () => {
-    boxgrp.style.alignItems = itm.array[index]
-    itm.dis.innerText = itm.array[index];
-    index = (index + 1) % itm.array.length;
-});
-
-cnt.btn.addEventListener('click', () => {
-    boxgrp.style.alignContent = cnt.array[index]
-    cnt.dis.innerText = cnt.array[index];
-    index = (index + 1) % cnt.array.length;
-});
-
-wrp.btn.addEventListener('click', () => {
-    boxgrp.style.flexWrap = wrp.array[index]
-    wrp.dis.innerText = wrp.array[index];
-    index = (index + 1) % wrp.array.length;
-});
+// Reset Button Functionality - End
