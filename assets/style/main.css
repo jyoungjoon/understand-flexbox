@@ -1,52 +1,53 @@
-/* USE THESE COLORS (heavier => lighter) : 00A7E1, 1CAFE0, 37B7DF, 6DC6DC, D9E5D6  */
+/* default styles for all devices */
+
 * {
     font-family: 'Yantramanav', sans-serif;
-}
-
-body {
+  }
+  
+  body {
     margin: 3em;
-}
-
-h2 {
+  }
+  
+  h2 {
     text-transform: uppercase;
     color: #00A7E1;
-}
-
-.blank {
+  }
+  
+  .blank {
     color: grey;
-}
-
-.accent {
+  }
+  
+  .accent {
     color: black;
-}
-
-header {
+  }
+  
+  header {
     color: #00A9E1;
     display: block;
     text-align: center;
     margin-left: 10px;
     font-weight: 400;
     font-size: 2em;
-}
-
-.content {
+  }
+  
+  .content {
     list-style-type: none;
     line-height: 1.8em;
-}
-
-main {
+  }
+  
+  .main {
     display: inline-block;
-}
-
-.box {
+  }
+  
+  .box {
     display: flex;
     border: 5px solid #000;
     width: 100%;
     height: 100vh;
     text-align: center;
-}
-
-.display {
+  }
+  
+  .display {
     display: inline-block;
     flex-direction: column;
     justify-content: center;
@@ -55,16 +56,16 @@ main {
     height: auto;
     margin-left: 40px;
     margin-bottom: 2em;
-}
-
-.box-item {
+  }
+  
+  .box-item {
     color: white;
     border: 1px solid #000;
     width: auto;
     height: auto;
-}
-
-.btn {
+  }
+  
+  .btn {
     display: inline-block;
     flex-direction: column;
     justify-content: center;
@@ -72,9 +73,9 @@ main {
     width: 100px;
     height: auto;
     margin: 20px;
-}
-
-.collapsible {
+  }
+  
+  .collapsible {
     background-color: #6DC6DC;
     color: white;
     cursor: pointer;
@@ -88,7 +89,8 @@ main {
     font-weight: 400;
   }
   
-  .active, .collapsible:hover {
+  .active,
+  .collapsible:hover {
     background-color: #37B7DF;
   }
   
@@ -114,3 +116,61 @@ main {
     margin-left: 1.5%;
     font-weight: 300;
   }
+  
+  /* media queries for different screen sizes */
+
+  /* Responsive styles */
+
+@media only screen and (max-width: 768px) {
+
+    header {
+        font-size: 1.5em;
+        margin: 2em;
+    }
+
+    .display {
+        margin-left: 20px;
+        margin-bottom: 1em;
+    }
+
+    .content {
+        width: 90%;
+        margin-left: 5%;
+        font-size: 0.9em;
+    }
+
+    .collapsible {
+        width: 90%;
+        font-size: 0.9em;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+    body {
+        margin: 1em;
+    }
+
+    header {
+        font-size: 1.2em;
+        margin: 1em;
+    }
+
+    .display {
+        margin-left: 10px;
+        margin-bottom: 0.5em;
+    }
+
+    .content {
+        width: 90%;
+        margin-left: 5%;
+        font-size: 0.8em;
+    }
+
+    .collapsible {
+        width: 90%;
+        font-size: 0.8em;
+    }
+
+}

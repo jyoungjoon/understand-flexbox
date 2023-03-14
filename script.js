@@ -13,7 +13,6 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
-// This feature adds/removes box-items with the click of a button
 const reset = document.getElementById('reset');
 const boxgrp = document.getElementById('boxgrp')
 
@@ -21,7 +20,7 @@ const box = {
   addBox: document.getElementById('addBox'),
   deleteBox: document.getElementById('deleteBox')
 }
-
+// This feature adds box-items with the click of a button
 box.addBox.addEventListener('click', createBox);
 
   function createBox() {
@@ -34,7 +33,7 @@ box.addBox.addEventListener('click', createBox);
     const randomColor = Math.floor(Math.random()*16777215).toString(16)
     newBox.style.backgroundColor = '#' + randomColor;
   }
-
+// This feature removes box-items with the click of a button
   box.deleteBox.addEventListener('click', deleteBox);
 
   function deleteBox() {
