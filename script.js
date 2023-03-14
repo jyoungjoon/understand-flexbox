@@ -23,17 +23,8 @@ const box = {
   deleteBox: document.getElementById('deleteBox')
 }
 
-const containerHeight = document.getElementById('containerHeight');
-const containerWidth = document.getElementById('containerWidth');
-if (containerHeight===true || containerWidth===true) {
-  boxgrp.style.height = containerHeight + 'px';
-  boxgrp.style.width = containerWidth + 'px';
-}
-
-
-
-
 // This feature adds box-items with the click of a button
+
 box.addBox.addEventListener('click', createBox);
 
   function createBox() {
@@ -142,7 +133,7 @@ box.addBox.addEventListener('click', createBox);
 // disableRadioButtons(flexcnt);
 
 
-// ****Short and simpler version of the radio button selector:
+// ****Shorter and simpler version of the radio button selector:
 
 document.querySelectorAll('[name*="directions"], [name^="justify"], [name^="alignI"], [name^="alignC"], [name^="wrap"]').forEach(radio => {
   radio.addEventListener('click', () => {
@@ -173,49 +164,82 @@ document.getElementsByName('alignC').forEach(alignRadio => {
   alignRadio.disabled = true;
 });
 
+// // Reset Button Functionality - Start
 
+// const reset = document.getElementById('reset');
 
+// let index = 0;
 
-// Reset Button Functionality - Start
+// reset.addEventListener('click', () => {
+//   const flexdir = document.getElementsByName('directions');
+//   const flexjst = document.getElementsByName('justify');
+//   const flexitm = document.getElementsByName('alignI');
+//   const flexcnt = document.getElementsByName('alignC');
+//   const flexwrp = document.getElementsByName('wrap');
+//   for (let i = 0; i < flexdir.length; i++) {
+//     flexdir[i].checked = false;
+//   }
+//   for (let i = 0; i < flexjst.length; i++) {
+//     flexjst[i].checked = false;
+//   }
+//   for (let i = 0; i < flexitm.length; i++) {
+//     flexitm[i].checked = false;
+//   }
+//   for (let i = 0; i < flexcnt.length; i++) {
+//     flexcnt[i].checked = false;
+//   }
+//   for (let i = 0; i < flexwrp.length; i++) {
+//     flexwrp[i].checked = false;
+//   }
+//     boxgrp.style.flexDirection = '';
+//     boxgrp.style.justifyContent = '';
+//     boxgrp.style.alignItems = '';
+//     boxgrp.style.alignContent = '';
+//     boxgrp.style.flexWrap = '';
+//     index = 0;
+//     function resetBox () {
+//       const x = document.getElementById('boxgrp');
+//       while (x.firstChild) {
+//         x.removeChild(x.firstChild);
+//       }
+//     }
+//     resetBox();    
+// });
 
-const reset = document.getElementById('reset');
+// // Reset Button Functionality - End
 
-let index = 0;
+// reset.addEventListener('click', () => {
+//   const radioButtons = [
+//     ...document.getElementsByName('directions'),
+//     ...document.getElementsByName('justify'),
+//     ...document.getElementsByName('alignI'),
+//     ...document.getElementsByName('alignC'),
+//     ...document.getElementsByName('wrap')
+//   ];
+
+//   radioButtons.forEach(radio => radio.checked = false);
+
+//   boxgrp.style.cssText = `
+//     flex-direction: ;
+//     justify-content: ;
+//     align-items: ;
+//     align-content: ;
+//     flex-wrap: ;
+//   `;
+
+//   boxgrp.innerHTML = '';
+// });
 
 reset.addEventListener('click', () => {
-  const flexdir = document.getElementsByName('directions');
-  const flexjst = document.getElementsByName('justify');
-  const flexitm = document.getElementsByName('alignI');
-  const flexcnt = document.getElementsByName('alignC');
-  const flexwrp = document.getElementsByName('wrap');
-  for (let i = 0; i < flexdir.length; i++) {
-    flexdir[i].checked = false;
-  }
-  for (let i = 0; i < flexjst.length; i++) {
-    flexjst[i].checked = false;
-  }
-  for (let i = 0; i < flexitm.length; i++) {
-    flexitm[i].checked = false;
-  }
-  for (let i = 0; i < flexcnt.length; i++) {
-    flexcnt[i].checked = false;
-  }
-  for (let i = 0; i < flexwrp.length; i++) {
-    flexwrp[i].checked = false;
-  }
-    boxgrp.style.flexDirection = '';
-    boxgrp.style.justifyContent = '';
-    boxgrp.style.alignItems = '';
-    boxgrp.style.alignContent = '';
-    boxgrp.style.flexWrap = '';
-    index = 0;
-    function resetBox () {
-      const x = document.getElementById('boxgrp');
-      while (x.firstChild) {
-        x.removeChild(x.firstChild);
-      }
-    }
-    resetBox();    
-});
+  const radioButtons = document.querySelectorAll('input[type="radio"]');
+  radioButtons.forEach(radio => radio.checked = false);
 
-// Reset Button Functionality - End
+  boxgrp.style.cssText = `
+    flex-direction: ;
+    justify-content: ;
+    align-items: ;
+    align-content: ;
+    flex-wrap: ;
+  `;
+  boxgrp.innerHTML = '';
+});
