@@ -15,52 +15,71 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
-// assigning values to the buttons
-var boxgrp = document.getElementById('boxgrp')
+// // assigning values to the buttons
+// var boxgrp = document.getElementById('boxgrp')
+
+// const box = {
+//   addBox: document.getElementById('addBox'),
+//   deleteBox: document.getElementById('deleteBox')
+// }
+
+// // This feature adds box-items with the click of a button
+
+// box.addBox.addEventListener('click', createBox);
+
+//   function createBox() {
+//     const newBox = document.createElement('div');
+//     newBox.classList.add('box-item');
+//     const boxCount = document.getElementsByClassName('box-item').length;
+//     newBox.innerText = (boxCount + 1);
+//     const boxgrp = document.getElementById('boxgrp');
+//     boxgrp.appendChild(newBox);
+//     const randomColor = Math.floor(Math.random()*16777215).toString(16)
+//     newBox.style.backgroundColor = '#' + randomColor;
+//     const boxWidth = document.getElementById('boxWidth').value;
+//     newBox.style.width = boxWidth + 'px';
+//     const boxHeight = document.getElementById('boxHeight').value;
+//     newBox.style.height = boxHeight + 'px';
+//   }
+
+// // This feature removes box-items with the click of a button
+//   box.deleteBox.addEventListener('click', deleteBox);
+
+//   function deleteBox() {
+//     const boxgrp = document.getElementById('boxgrp');
+//     const boxCount = document.getElementsByClassName('box-item').length;
+//     if (boxCount > 0) {
+//       boxgrp.removeChild(boxgrp.lastChild);
+//     }
+//   }
 
 const box = {
   addBox: document.getElementById('addBox'),
   deleteBox: document.getElementById('deleteBox')
-}
+};
 
-const containerHeight = document.getElementById('containerHeight');
-const containerWidth = document.getElementById('containerWidth');
-if (containerHeight===true || containerWidth===true) {
-  boxgrp.style.height = containerHeight + 'px';
-  boxgrp.style.width = containerWidth + 'px';
-}
+const boxgrp = document.getElementById('boxgrp');
+const boxWidthInput = document.getElementById('boxWidth');
+const boxHeightInput = document.getElementById('boxHeight');
 
-
-
-
-// This feature adds box-items with the click of a button
 box.addBox.addEventListener('click', createBox);
+box.deleteBox.addEventListener('click', deleteBox);
 
-  function createBox() {
-    const newBox = document.createElement('div');
-    newBox.classList.add('box-item');
-    const boxCount = document.getElementsByClassName('box-item').length;
-    newBox.innerText = (boxCount + 1);
-    const boxgrp = document.getElementById('boxgrp');
-    boxgrp.appendChild(newBox);
-    const randomColor = Math.floor(Math.random()*16777215).toString(16)
-    newBox.style.backgroundColor = '#' + randomColor;
-    const boxWidth = document.getElementById('boxWidth').value;
-    newBox.style.width = boxWidth + 'px';
-    const boxHeight = document.getElementById('boxHeight').value;
-    newBox.style.height = boxHeight + 'px';
+function createBox() {
+  const newBox = document.createElement('div');
+  newBox.classList.add('box-item');
+  newBox.innerText = document.querySelectorAll('.box-item').length + 1;
+  newBox.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+  newBox.style.width = boxWidthInput.value + 'px';
+  newBox.style.height = boxHeightInput.value + 'px';
+  boxgrp.appendChild(newBox);
+}
+
+function deleteBox() {
+  if (boxgrp.lastChild && boxgrp.lastChild.classList.contains('box-item')) {
+    boxgrp.removeChild(boxgrp.lastChild);
   }
-
-// This feature removes box-items with the click of a button
-  box.deleteBox.addEventListener('click', deleteBox);
-
-  function deleteBox() {
-    const boxgrp = document.getElementById('boxgrp');
-    const boxCount = document.getElementsByClassName('box-item').length;
-    if (boxCount > 0) {
-      boxgrp.removeChild(boxgrp.lastChild);
-    }
-  }
+}
 
 // // This feature allows the user to change the flex-direction property with selected values from the radio buttons
 
@@ -142,7 +161,7 @@ box.addBox.addEventListener('click', createBox);
 // disableRadioButtons(flexcnt);
 
 
-// ****Short and simpler version of the radio button selector:
+// ****Shorter and simpler version of the radio button selector:
 
 document.querySelectorAll('[name*="directions"], [name^="justify"], [name^="alignI"], [name^="alignC"], [name^="wrap"]').forEach(radio => {
   radio.addEventListener('click', () => {
@@ -173,49 +192,82 @@ document.getElementsByName('alignC').forEach(alignRadio => {
   alignRadio.disabled = true;
 });
 
+// // Reset Button Functionality - Start
 
+// const reset = document.getElementById('reset');
 
+// let index = 0;
 
-// Reset Button Functionality - Start
+// reset.addEventListener('click', () => {
+//   const flexdir = document.getElementsByName('directions');
+//   const flexjst = document.getElementsByName('justify');
+//   const flexitm = document.getElementsByName('alignI');
+//   const flexcnt = document.getElementsByName('alignC');
+//   const flexwrp = document.getElementsByName('wrap');
+//   for (let i = 0; i < flexdir.length; i++) {
+//     flexdir[i].checked = false;
+//   }
+//   for (let i = 0; i < flexjst.length; i++) {
+//     flexjst[i].checked = false;
+//   }
+//   for (let i = 0; i < flexitm.length; i++) {
+//     flexitm[i].checked = false;
+//   }
+//   for (let i = 0; i < flexcnt.length; i++) {
+//     flexcnt[i].checked = false;
+//   }
+//   for (let i = 0; i < flexwrp.length; i++) {
+//     flexwrp[i].checked = false;
+//   }
+//     boxgrp.style.flexDirection = '';
+//     boxgrp.style.justifyContent = '';
+//     boxgrp.style.alignItems = '';
+//     boxgrp.style.alignContent = '';
+//     boxgrp.style.flexWrap = '';
+//     index = 0;
+//     function resetBox () {
+//       const x = document.getElementById('boxgrp');
+//       while (x.firstChild) {
+//         x.removeChild(x.firstChild);
+//       }
+//     }
+//     resetBox();    
+// });
 
-const reset = document.getElementById('reset');
+// // Reset Button Functionality - End
 
-let index = 0;
+// reset.addEventListener('click', () => {
+//   const radioButtons = [
+//     ...document.getElementsByName('directions'),
+//     ...document.getElementsByName('justify'),
+//     ...document.getElementsByName('alignI'),
+//     ...document.getElementsByName('alignC'),
+//     ...document.getElementsByName('wrap')
+//   ];
+
+//   radioButtons.forEach(radio => radio.checked = false);
+
+//   boxgrp.style.cssText = `
+//     flex-direction: ;
+//     justify-content: ;
+//     align-items: ;
+//     align-content: ;
+//     flex-wrap: ;
+//   `;
+
+//   boxgrp.innerHTML = '';
+// });
 
 reset.addEventListener('click', () => {
-  const flexdir = document.getElementsByName('directions');
-  const flexjst = document.getElementsByName('justify');
-  const flexitm = document.getElementsByName('alignI');
-  const flexcnt = document.getElementsByName('alignC');
-  const flexwrp = document.getElementsByName('wrap');
-  for (let i = 0; i < flexdir.length; i++) {
-    flexdir[i].checked = false;
-  }
-  for (let i = 0; i < flexjst.length; i++) {
-    flexjst[i].checked = false;
-  }
-  for (let i = 0; i < flexitm.length; i++) {
-    flexitm[i].checked = false;
-  }
-  for (let i = 0; i < flexcnt.length; i++) {
-    flexcnt[i].checked = false;
-  }
-  for (let i = 0; i < flexwrp.length; i++) {
-    flexwrp[i].checked = false;
-  }
-    boxgrp.style.flexDirection = '';
-    boxgrp.style.justifyContent = '';
-    boxgrp.style.alignItems = '';
-    boxgrp.style.alignContent = '';
-    boxgrp.style.flexWrap = '';
-    index = 0;
-    function resetBox () {
-      const x = document.getElementById('boxgrp');
-      while (x.firstChild) {
-        x.removeChild(x.firstChild);
-      }
-    }
-    resetBox();    
-});
+  const radioButtons = document.querySelectorAll('input[type="radio"]');
+  radioButtons.forEach(radio => radio.checked = false);
 
-// Reset Button Functionality - End
+  boxgrp.style.cssText = `
+    flex-direction: ;
+    justify-content: ;
+    align-items: ;
+    align-content: ;
+    flex-wrap: ;
+  `;
+  boxgrp.innerHTML = '';
+});
