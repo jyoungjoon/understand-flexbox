@@ -30,13 +30,13 @@
         <dd>Determines how the items are aligned on the main axis. The available values are flex-start, space-around, space-between, and center.</dd>
         </li>
         <li><dt>'align-items:'</dt>
-        <dd>Specifies how the items are aligned on the cross axis. The options are baseline, stretch, flex-start, flex-end, and center. The cross axis is the opposite of the main axis.</dd>
-        </li>
-        <li><dt>'align-content:'</dt>
-        <dd>Determines how the items are aligned on the cross axis when there is extra space. The values include flex-start, flex-end, center, space-between, and space-around.</dd>
+        <dd>Specifies how the items are aligned on the cross axis. The options are baseline, stretch, flex-start, flex-end, and center. The cross axis is the opposite of the main axis. </dd>
         </li>
         <li><dt>'flex-wrap:'</dt>
-        <dd>Specifies whether the items should wrap when they exceed the container's width or height. The options are nowrap, wrap, and wrap-reverse.</dd>
+            <dd>Specifies whether the items should wrap when they exceed the container's width or height. The options are nowrap, wrap, and wrap-reverse.</dd>
+            </li>
+        <li><dt>'align-content:'</dt>
+        <dd>Determines how the items are aligned on the cross axis when there is extra space. The values include flex-start, flex-end, center, space-between, and space-around. This property has <strong><em>no effect</em></strong> on single line flex containers (i.e. ones with flex-wrap: nowrap).</dd>
         </li>
         <li><dt>'flex-flow:'</dt>
         <dd>A shorthand property for flex-direction and flex-wrap. You can set both properties at once with this property.</dd>
@@ -72,13 +72,6 @@
         </ul>
         
         <h2>Flexbox Simulator</h2>
-        <p>Container Size : <span class="blank">(leave it blank to set it to default)</span></p>
-        <label for="containerWidth">Set your container width in px: </label><input type="text" name="containerWidth" id="containerWidth" placeholder="Container Width">
-        <br>
-        <br>
-        <label for="containerHeight">Set your container height in px: </label><input type="text" name="containerHeight" id="containerHeight" placeholder="Container Height">
-        <br>
-        <br>
         <p>Box Size : <span class="blank">(leave it blank to set it to default)</span></p>
         <label for="boxWidth">Set your box width in px: </label><input type="text" name="boxWidth" id="boxWidth" placeholder="Box Width">
         <br>
@@ -89,24 +82,71 @@
         
         <button class="btn" id="addBox">Add Box</button>
         <button class="btn" id="deleteBox">Delete Box</button>
-        <button class="btn" id="reset">Reset</button>
+        <button class="btn" id="reset">Reset All</button>
 
         <section class="sect" id="sectgrp">
-            <button class="btn" id="btndir">flex-direction</button>
-            <button class="btn" id="btnjst">justify-content</button>
-            <button class="btn" id="btnitm">align-items</button>
-            <button class="btn" id="btnwrp">flex-wrap</button>
-            <button class="btn" id="btncnt">align-content</button>
-            <br>
-        </section>
+            <h2>Select your flexbox properties:</h2>
+            <p class="propertiesContainer">flex-direction:
+                <input type ="radio" class="flexdir" id="row" name="directions" value="row">
+                <label for="row">row</label>
+                <input type ="radio" class="flexdir" id="row-reverse" name="directions" value="row-reverse">
+                <label for="row-reverse">row-reverse</label>
+                <input type ="radio" class="flexdir" id="column" name="directions" value="column">
+                <label for="column">column</label>
+                <input type ="radio" class="flexdir" id="column-reverse" name="directions" value="column-reverse">
+                <label for="column-reverse">column-reverse</label>
+            </p>
 
-        <section class="sect" id="sectdis">
-        <span class="display" id="disdir"></span>
-        <span class="display" id="disjst"></span>
-        <span class="display" id="disitm"></span>
-        <span class="display" id="diswrp"></span>
-        <span class="display" id="discnt"></span>
+            <p class="propertiesContainer">justify-content:
+                <input type ="radio" class="flexjc" id="jc-flex-start" name="justify" value="flex-start">
+                <label for="jc-flex-start">flex-start</label>
+                <input type ="radio" class="flexjc" id="jc-flex-end" name="justify" value="flex-end">
+                <label for="jc-flex-end">flex-end</label>
+                <input type ="radio" class="flexjc" id="jc-center" name="justify" value="center">
+                <label for="jc-center">center</label>
+                <input type ="radio" class="flexjc" id="jc-space-between" name="justify" value="space-between">
+                <label for="jc-space-between">space-between</label>
+                <input type ="radio" class="flexjc" id="jc-space-around" name="justify" value="space-around">
+                <label for="jc-space-around">space-around</label>
+                <input type ="radio" class="flexjc" id="jc-space-evenly" name="justify" value="space-evenly">
+                <label for="jc-space-evenly">space-evenly</label>
+            </p>
 
+            <p class="propertiesContainer">align-items:
+                <input type ="radio" class="flexai" id="ai-flex-start" name="alignI" value="flex-start">
+                <label for="ai-flex-start">flex-start</label>
+                <input type ="radio" class="flexai" id="ai-flex-end" name="alignI" value="flex-end">
+                <label for="ai-flex-end">flex-end</label>
+                <input type ="radio" class="flexai" id="ai-center" name="alignI" value="center">
+                <label for="ai-center">center</label>
+                <input type ="radio" class="flexai" id="ai-baseline" name="alignI" value="baseline">
+                <label for="ai-baseline">baseline</label>
+                <input type ="radio" class="flexai" id="ai-stretch" name="alignI" value="stretch">
+                <label for="ai-stretch">stretch</label>
+            </p>
+
+            <p class="propertiesContainer">flex-wrap:
+                <input type ="radio" class="flexwrap" id="nowrap" name="wrap" value="nowrap">
+                <label for="nowrap">nowrap</label>
+                <input type ="radio" class="flexwrap" id="wrap" name="wrap" value="wrap">
+                <label for="wrap">wrap</label>
+                <input type ="radio" class="flexwrap" id="wrap-reverse" name="wrap" value="wrap-reverse">
+                <label for="wrap-reverse">wrap-reverse</label>
+            </p>
+            <p class="propertiesContainer">align-content:
+                <input type ="radio" class="flexac" id="ac-flex-start" name="alignC" value="flex-start">
+                <label for="ac-flex-start">flex-start</label>
+                <input type ="radio" class="flexac" id="ac-flex-end" name="alignC" value="flex-end">
+                <label for="ac-flex-end">flex-end</label>
+                <input type ="radio" class="flexac" id="ac-center" name="alignC" value="center">
+                <label for="ac-center">center</label>
+                <input type ="radio" class="flexac" id="ac-space-between" name="alignC" value="space-between">
+                <label for="ac-space-between">space-between</label>
+                <input type ="radio" class="flexac" id="ac-space-around" name="alignC" value="space-around">
+                <label for="ac-space-around">space-around</label>
+                <input type ="radio" class="flexac" id="ac-space-evenly" name="alignC" value="space-evenly">
+                <label for="ac-space-evenly">space-evenly</label>
+            </p>
         </section>
 
         <section class="box" id="boxgrp">
