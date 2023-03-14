@@ -15,43 +15,71 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
-// assigning values to the buttons
-var boxgrp = document.getElementById('boxgrp')
+// // assigning values to the buttons
+// var boxgrp = document.getElementById('boxgrp')
+
+// const box = {
+//   addBox: document.getElementById('addBox'),
+//   deleteBox: document.getElementById('deleteBox')
+// }
+
+// // This feature adds box-items with the click of a button
+
+// box.addBox.addEventListener('click', createBox);
+
+//   function createBox() {
+//     const newBox = document.createElement('div');
+//     newBox.classList.add('box-item');
+//     const boxCount = document.getElementsByClassName('box-item').length;
+//     newBox.innerText = (boxCount + 1);
+//     const boxgrp = document.getElementById('boxgrp');
+//     boxgrp.appendChild(newBox);
+//     const randomColor = Math.floor(Math.random()*16777215).toString(16)
+//     newBox.style.backgroundColor = '#' + randomColor;
+//     const boxWidth = document.getElementById('boxWidth').value;
+//     newBox.style.width = boxWidth + 'px';
+//     const boxHeight = document.getElementById('boxHeight').value;
+//     newBox.style.height = boxHeight + 'px';
+//   }
+
+// // This feature removes box-items with the click of a button
+//   box.deleteBox.addEventListener('click', deleteBox);
+
+//   function deleteBox() {
+//     const boxgrp = document.getElementById('boxgrp');
+//     const boxCount = document.getElementsByClassName('box-item').length;
+//     if (boxCount > 0) {
+//       boxgrp.removeChild(boxgrp.lastChild);
+//     }
+//   }
 
 const box = {
   addBox: document.getElementById('addBox'),
   deleteBox: document.getElementById('deleteBox')
-}
+};
 
-// This feature adds box-items with the click of a button
+const boxgrp = document.getElementById('boxgrp');
+const boxWidthInput = document.getElementById('boxWidth');
+const boxHeightInput = document.getElementById('boxHeight');
 
 box.addBox.addEventListener('click', createBox);
+box.deleteBox.addEventListener('click', deleteBox);
 
-  function createBox() {
-    const newBox = document.createElement('div');
-    newBox.classList.add('box-item');
-    const boxCount = document.getElementsByClassName('box-item').length;
-    newBox.innerText = (boxCount + 1);
-    const boxgrp = document.getElementById('boxgrp');
-    boxgrp.appendChild(newBox);
-    const randomColor = Math.floor(Math.random()*16777215).toString(16)
-    newBox.style.backgroundColor = '#' + randomColor;
-    const boxWidth = document.getElementById('boxWidth').value;
-    newBox.style.width = boxWidth + 'px';
-    const boxHeight = document.getElementById('boxHeight').value;
-    newBox.style.height = boxHeight + 'px';
+function createBox() {
+  const newBox = document.createElement('div');
+  newBox.classList.add('box-item');
+  newBox.innerText = document.querySelectorAll('.box-item').length + 1;
+  newBox.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+  newBox.style.width = boxWidthInput.value + 'px';
+  newBox.style.height = boxHeightInput.value + 'px';
+  boxgrp.appendChild(newBox);
+}
+
+function deleteBox() {
+  if (boxgrp.lastChild && boxgrp.lastChild.classList.contains('box-item')) {
+    boxgrp.removeChild(boxgrp.lastChild);
   }
-
-// This feature removes box-items with the click of a button
-  box.deleteBox.addEventListener('click', deleteBox);
-
-  function deleteBox() {
-    const boxgrp = document.getElementById('boxgrp');
-    const boxCount = document.getElementsByClassName('box-item').length;
-    if (boxCount > 0) {
-      boxgrp.removeChild(boxgrp.lastChild);
-    }
-  }
+}
 
 // // This feature allows the user to change the flex-direction property with selected values from the radio buttons
 
