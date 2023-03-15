@@ -3,9 +3,9 @@
 :root {
   --font-family: 'Yantramanav', sans-serif;
   --color-accent: black;
-  --color-primary: #00A7E1;
-  --color-secondary: #6DC6DC;
-  --color-secondary-dark: #37B7DF;
+  --color-primary: #ffc145;
+  --color-secondary: #ffc145;
+  --color-secondary-dark: #ffe694;
   --color-gray: gray;
 }
 
@@ -14,7 +14,8 @@
 }
 
 body {
-  margin: 3em;
+  margin: 1.5em;
+  background-color: #FCFDF6;
 }
 
 h1 {
@@ -101,11 +102,10 @@ header {
   margin-bottom: 2em;
 }
 
-.box-item {
-  color: white;
-  border: 1px solid black;
-  width: auto;
-  height: auto;
+img {
+  color: black;
+  width: 100px;
+  height: 100px;
 }
 
 .btn {
@@ -120,7 +120,7 @@ header {
 
 .collapsible {
   background-color: var(--color-secondary);
-  color: white;
+  color: black;
   cursor: pointer;
   padding: 18px;
   width: 75%;
@@ -139,7 +139,7 @@ header {
 
 .collapsible:after {
   content: '\002B';
-  color: white;
+  color: black;
   font-weight: bold;
   float: right;
   margin-left: 5px;

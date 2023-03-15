@@ -66,19 +66,31 @@ box.addBox.addEventListener('click', createBox);
 box.deleteBox.addEventListener('click', deleteBox);
 
 function createBox() {
-  const newBox = document.createElement('div');
-  newBox.classList.add('box-item');
-  newBox.innerText = document.querySelectorAll('.box-item').length + 1;
-  newBox.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-  newBox.style.width = boxWidthInput.value + 'px';
-  newBox.style.height = boxHeightInput.value + 'px';
-  boxgrp.appendChild(newBox);
+  const newImage = document.createElement('img');
+  newImage.classList.add('box-item');
+  newImage.style.width = boxWidthInput.value + 'px';
+  newImage.style.height = boxHeightInput.value + 'px';
+  newImage.src = './assets/image/banana.png';
+  boxgrp.appendChild(newImage);
 }
 
 function deleteBox() {
   if (boxgrp.lastChild && boxgrp.lastChild.classList.contains('box-item')) {
     boxgrp.removeChild(boxgrp.lastChild);
   }
+}
+
+const containerWidthInput = document.getElementById('containerWidth');
+const containerHeightInput = document.getElementById('containerHeight');
+
+containerWidthInput.addEventListener('input', updateContainerWidth);
+containerHeightInput.addEventListener('input', updateContainerHeight);
+
+function updateContainerWidth() {
+  boxgrp.style.width = containerWidthInput.value + 'px';
+}
+function updateContainerHeight() {
+  boxgrp.style.height = containerHeightInput.value + 'px';
 }
 
 // // This feature allows the user to change the flex-direction property with selected values from the radio buttons
@@ -270,4 +282,11 @@ reset.addEventListener('click', () => {
     flex-wrap: ;
   `;
   boxgrp.innerHTML = '';
+  containerHeightInput.value = '';
+  containerWidthInput.value = '';
+  boxWidthInput.value = '';
+  boxHeightInput.value = '';
+  boxgrp.width = '100%';
+  boxgrp.height = '100vh';
+
 });
