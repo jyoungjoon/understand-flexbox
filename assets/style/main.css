@@ -30,13 +30,18 @@ h3 {
 .propertiesContainer {
   display: flex;
   flex-direction: row;
+  align-content: center;
+  flex-wrap: wrap;
   width: 100%;
-  margin: 2em;
 }
 
 .labels {
   margin-left: 2em;
 }
+
+label {
+  white-space: nowrap;
+  }
 
 input[type="radio"] {
   margin-left: 1.5em;
