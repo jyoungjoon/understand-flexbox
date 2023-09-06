@@ -1,89 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./assets/style/main.css">
     <title>Understand Flexbox</title>
 </head>
 
 <body>
     <header>
-        <h1><img id="titleImg" src=./assets/image/banana.png>BANANA<span class="accent">-</span>FLEXBOX<img id="titleImg" src=./assets/image/banana.png></h1>
+        <h1><img id="titleImg" src=./assets/image/banana.png>BANANA<span class="accent">-</span>FLEXBOX<img
+                id="titleImg" src=./assets/image/banana.png></h1>
     </header>
     <main>
 
         <h2>Cheat Sheet</h2>
 
-<!-- added list-layers and class:"collapsible" ids to the following two ul elements  -->
+        <!-- added list-layers and class:"collapsible" ids to the following two ul elements  -->
         <button class="collapsible">Group Properties (apply to a container with display set to flex)</button>
         <ul class="content" id="firstList">
-        <dd>
-        <li><dt>'flex-direction:'</dt>
-        <dd>Sets the direction of the main axis, which can be row, column, row-reverse, or column-reverse. Reversing the direction flips the starting point on the main axis.</dd>
-        </li>
-        <li><dt>'justify-content:'</dt>
-        <dd>Determines how the items are aligned on the main axis. The available values are flex-start, space-around, space-between, and center.</dd>
-        </li>
-        <li><dt>'align-items:'</dt>
-        <dd>Specifies how the items are aligned on the cross axis. The options are baseline, stretch, flex-start, flex-end, and center. The cross axis is the opposite of the main axis. </dd>
-        </li>
-        <li><dt>'flex-wrap:'</dt>
-            <dd>Specifies whether the items should wrap when they exceed the container's width or height. The options are nowrap, wrap, and wrap-reverse.</dd>
+            <dd>
+                <li>
+            <dt>'flex-direction:'</dt>
+            <dd>Sets the direction of the main axis, which can be row, column, row-reverse, or column-reverse. Reversing
+                the direction flips the starting point on the main axis.</dd>
             </li>
-        <li><dt>'align-content:'</dt>
-        <dd>Determines how the items are aligned on the cross axis when there is extra space. The values include flex-start, flex-end, center, space-between, and space-around. This property has <strong><em>no effect</em></strong> on single line flex containers (i.e. ones with flex-wrap: nowrap).</dd>
-        </li>
-        <li><dt>'flex-flow:'</dt>
-        <dd>A shorthand property for flex-direction and flex-wrap. You can set both properties at once with this property.</dd>
-        </li>
-        <dd>
+            <li>
+                <dt>'justify-content:'</dt>
+                <dd>Determines how the items are aligned on the main axis. The available values are flex-start,
+                    space-around, space-between, and center.</dd>
+            </li>
+            <li>
+                <dt>'align-items:'</dt>
+                <dd>Specifies how the items are aligned on the cross axis. The options are baseline, stretch,
+                    flex-start, flex-end, and center. The cross axis is the opposite of the main axis. </dd>
+            </li>
+            <li>
+                <dt>'flex-wrap:'</dt>
+                <dd>Specifies whether the items should wrap when they exceed the container's width or height. The
+                    options are nowrap, wrap, and wrap-reverse.</dd>
+            </li>
+            <li>
+                <dt>'align-content:'</dt>
+                <dd>Determines how the items are aligned on the cross axis when there is extra space. The values include
+                    flex-start, flex-end, center, space-between, and space-around. This property has <strong><em>no
+                            effect</em></strong> on single line flex containers (i.e. ones with flex-wrap: nowrap).</dd>
+            </li>
+            <li>
+                <dt>'flex-flow:'</dt>
+                <dd>A shorthand property for flex-direction and flex-wrap. You can set both properties at once with this
+                    property.</dd>
+            </li>
+            <dd>
         </ul>
 
-        <button class="collapsible">Individual Item Properties (apply to individual items in a container with display set to flex)</button>
+        <button class="collapsible">Individual Item Properties (apply to individual items in a container with display
+            set to flex)</button>
         <ul class="content" id="secondList">
             <dd>
-        <li><dt>'align-self:'</dt>
-        <dd>Sets the alignment of a single item on the cross axis. The values are flex-start, flex-end, center, stretch, and baseline.</dd>
-        </li>
-        <li><dt>'flex-grow:'</dt>
-        <dd>Determines how much an item should grow if there is extra space on the main axis. The value is a ratio.</dd>
-        </li>
-        <li><dt>'flex-shrink:'</dt>
-        <dd>Specifies how much an item should shrink if there is not enough space on the main axis. The value is also a ratio.</dd>
-        </li>
-        <li><dt>'flex-basis:'</dt>
-        <dd>Sets the initial size of an item before it enters the flexbox layout. This property is different from width because it applies to the height when the flex-direction is column.</dd>
-        </li>
-        <li><dt>'flex:'</dt>
-        <dd>A shorthand property for flex-grow, flex-shrink, and flex-basis. You can use it like this: flex: 1 0 auto; which sets flex-grow to 1, flex-shrink to 0, and flex-basis to auto.</dd>
-        </li>
-        <li><dt>'order:'</dt>
-        <dd>Specifies the order in which the items are displayed. The default value is 0, and you can use negative or positive values to change the order.</dd>
-        </li>
-        <li><dt>'min-width' and 'min-height:'</dt>
-            <dd>These properties can be used to set a minimum width or height for flex items. This is useful when you want to prevent an item from shrinking too much.</dd>
-        </li>
-        </dd>
+                <li>
+            <dt>'align-self:'</dt>
+            <dd>Sets the alignment of a single item on the cross axis. The values are flex-start, flex-end, center,
+                stretch, and baseline.</dd>
+            </li>
+            <li>
+                <dt>'flex-grow:'</dt>
+                <dd>Determines how much an item should grow if there is extra space on the main axis. The value is a
+                    ratio.</dd>
+            </li>
+            <li>
+                <dt>'flex-shrink:'</dt>
+                <dd>Specifies how much an item should shrink if there is not enough space on the main axis. The value is
+                    also a ratio.</dd>
+            </li>
+            <li>
+                <dt>'flex-basis:'</dt>
+                <dd>Sets the initial size of an item before it enters the flexbox layout. This property is different
+                    from width because it applies to the height when the flex-direction is column.</dd>
+            </li>
+            <li>
+                <dt>'flex:'</dt>
+                <dd>A shorthand property for flex-grow, flex-shrink, and flex-basis. You can use it like this: flex: 1 0
+                    auto; which sets flex-grow to 1, flex-shrink to 0, and flex-basis to auto.</dd>
+            </li>
+            <li>
+                <dt>'order:'</dt>
+                <dd>Specifies the order in which the items are displayed. The default value is 0, and you can use
+                    negative or positive values to change the order.</dd>
+            </li>
+            <li>
+                <dt>'min-width' and 'min-height:'</dt>
+                <dd>These properties can be used to set a minimum width or height for flex items. This is useful when
+                    you want to prevent an item from shrinking too much.</dd>
+            </li>
+            </dd>
         </ul>
-        
+
         <h2>ADJUST YOUR CONTAINER AND BANANA SIZE :</h2>
-        <p class="propertiesContainer">Container Size : <span class="blank">(leave it blank to set it to default: w100% h100vh)</span></p>
-        <label class="labels" for="containerWidth">Set your container width in px: </label><input type="text" name="containerWidth" id="containerWidth" placeholder="Container Width">
+        <p class="propertiesContainer">Container Size : <span class="blank">(leave it blank to set it to default: w100%
+                h100vh)</span></p>
+        <label class="labels" for="containerWidth">Set your container width in px: </label><input type="text"
+            name="containerWidth" id="containerWidth" placeholder="Container Width">
         <br>
         <br>
-        <label class="labels" for="containerHeight">Set your container height in px: </label><input type="text" name="containerHeight" id="containerHeight" placeholder="Container Height">
+        <label class="labels" for="containerHeight">Set your container height in px: </label><input type="text"
+            name="containerHeight" id="containerHeight" placeholder="Container Height">
         <br>
         <br>
-        <p class="propertiesContainer">Banana Size : <span class="blank">(leave it blank to set it to default: w100px h100px)</span></p>
-        <label class="labels" for="boxWidth">Set your banana width in px: </label><input type="text" name="boxWidth" id="boxWidth" placeholder="Banana Width">
+        <p class="propertiesContainer">Banana Size : <span class="blank">(leave it blank to set it to default: w100px
+                h100px)</span></p>
+        <label class="labels" for="boxWidth">Set your banana width in px: </label><input type="text" name="boxWidth"
+            id="boxWidth" placeholder="Banana Width">
         <br>
         <br>
-        <label class="labels" for="boxHeight">Set your banana height in px: </label><input type="text" name="boxHeight" id="boxHeight" placeholder="Banana Height">
+        <label class="labels" for="boxHeight">Set your banana height in px: </label><input type="text" name="boxHeight"
+            id="boxHeight" placeholder="Banana Height">
         <br>
         <br>
         <button class="btn" id="addBox">+1 Banana</button>
@@ -93,96 +130,96 @@
         <section class="" id="sectgrp">
             <h2>Select your flexbox properties :</h2>
             <button class="collapsible">flex-direction:</button>
-                <ul class="content">
-                <li><input type ="radio" class="flexdir" id="row" name="directions" value="row">
-                <label for="row">row</label>
+            <ul class="content">
+                <li><input type="radio" class="flexdir" id="row" name="directions" value="row">
+                    <label for="row">row</label>
                 </li>
-                <li><input type ="radio" class="flexdir" id="row-reverse" name="directions" value="row-reverse">
-                <label for="row-reverse">row-reverse</label>
+                <li><input type="radio" class="flexdir" id="row-reverse" name="directions" value="row-reverse">
+                    <label for="row-reverse">row-reverse</label>
                 </li>
-                <li><input type ="radio" class="flexdir" id="column" name="directions" value="column">
-                <label for="column">column</label>
+                <li><input type="radio" class="flexdir" id="column" name="directions" value="column">
+                    <label for="column">column</label>
                 </li>
-                <li><input type ="radio" class="flexdir" id="column-reverse" name="directions" value="column-reverse">
-                <label for="column-reverse">column-reverse</label>
+                <li><input type="radio" class="flexdir" id="column-reverse" name="directions" value="column-reverse">
+                    <label for="column-reverse">column-reverse</label>
                 </li>
             </ul>
 
             <button class="collapsible">justify-content:</button>
-                <ul class="content">
-                <li><input type ="radio" class="flexjc" id="jc-flex-start" name="justify" value="flex-start">
-                <label for="jc-flex-start">flex-start</label>
+            <ul class="content">
+                <li><input type="radio" class="flexjc" id="jc-flex-start" name="justify" value="flex-start">
+                    <label for="jc-flex-start">flex-start</label>
                 </li>
-                <li><input type ="radio" class="flexjc" id="jc-flex-end" name="justify" value="flex-end">
-                <label for="jc-flex-end">flex-end</label>
+                <li><input type="radio" class="flexjc" id="jc-flex-end" name="justify" value="flex-end">
+                    <label for="jc-flex-end">flex-end</label>
                 </li>
-                <li><input type ="radio" class="flexjc" id="jc-center" name="justify" value="center">
-                <label for="jc-center">center</label>
+                <li><input type="radio" class="flexjc" id="jc-center" name="justify" value="center">
+                    <label for="jc-center">center</label>
                 </li>
-                <li><input type ="radio" class="flexjc" id="jc-space-between" name="justify" value="space-between">
-                <label for="jc-space-between">space-between</label>
+                <li><input type="radio" class="flexjc" id="jc-space-between" name="justify" value="space-between">
+                    <label for="jc-space-between">space-between</label>
                 </li>
-                <li><input type ="radio" class="flexjc" id="jc-space-around" name="justify" value="space-around">
-                <label for="jc-space-around">space-around</label>
+                <li><input type="radio" class="flexjc" id="jc-space-around" name="justify" value="space-around">
+                    <label for="jc-space-around">space-around</label>
                 </li>
-                <li><input type ="radio" class="flexjc" id="jc-space-evenly" name="justify" value="space-evenly">
-                <label for="jc-space-evenly">space-evenly</label>
+                <li><input type="radio" class="flexjc" id="jc-space-evenly" name="justify" value="space-evenly">
+                    <label for="jc-space-evenly">space-evenly</label>
                 </li>
             </ul>
 
 
             <button class="collapsible">align-items:</button>
-                <ul class="content">
-                <li><input type ="radio" class="flexai" id="ai-flex-start" name="alignI" value="flex-start">
-                <label for="ai-flex-start">flex-start</label>
+            <ul class="content">
+                <li><input type="radio" class="flexai" id="ai-flex-start" name="alignI" value="flex-start">
+                    <label for="ai-flex-start">flex-start</label>
                 </li>
-                <li><input type ="radio" class="flexai" id="ai-flex-end" name="alignI" value="flex-end">
-                <label for="ai-flex-end">flex-end</label>
+                <li><input type="radio" class="flexai" id="ai-flex-end" name="alignI" value="flex-end">
+                    <label for="ai-flex-end">flex-end</label>
                 </li>
-                <li><input type ="radio" class="flexai" id="ai-center" name="alignI" value="center">
-                <label for="ai-center">center</label>
+                <li><input type="radio" class="flexai" id="ai-center" name="alignI" value="center">
+                    <label for="ai-center">center</label>
                 </li>
-                <li><input type ="radio" class="flexai" id="ai-baseline" name="alignI" value="baseline">
-                <label for="ai-baseline">baseline</label>
-                </li>  
-                <li><input type ="radio" class="flexai" id="ai-stretch" name="alignI" value="stretch">
-                <label for="ai-stretch">stretch</label>
+                <li><input type="radio" class="flexai" id="ai-baseline" name="alignI" value="baseline">
+                    <label for="ai-baseline">baseline</label>
+                </li>
+                <li><input type="radio" class="flexai" id="ai-stretch" name="alignI" value="stretch">
+                    <label for="ai-stretch">stretch</label>
                 </li>
             </ul>
 
 
             <button class="collapsible">flex-wrap:</button>
-                <ul class="content">
-                <li><input type ="radio" class="flexwrap" id="nowrap" name="wrap" value="nowrap">
-                <label for="nowrap">nowrap</label>
+            <ul class="content">
+                <li><input type="radio" class="flexwrap" id="nowrap" name="wrap" value="nowrap">
+                    <label for="nowrap">nowrap</label>
                 </li>
-                <li><input type ="radio" class="flexwrap" id="wrap" name="wrap" value="wrap">
-                <label for="wrap">wrap</label>
+                <li><input type="radio" class="flexwrap" id="wrap" name="wrap" value="wrap">
+                    <label for="wrap">wrap</label>
                 </li>
-                <li><input type ="radio" class="flexwrap" id="wrap-reverse" name="wrap" value="wrap-reverse">
-                <label for="wrap-reverse">wrap-reverse</label>
+                <li><input type="radio" class="flexwrap" id="wrap-reverse" name="wrap" value="wrap-reverse">
+                    <label for="wrap-reverse">wrap-reverse</label>
                 </li>
             </ul>
 
             <button class="collapsible">align-content:</button>
-                <ul class="content">
-                <li><input type ="radio" class="flexac" id="ac-flex-start" name="alignC" value="flex-start">
-                <label for="ac-flex-start">flex-start</label>
+            <ul class="content">
+                <li><input type="radio" class="flexac" id="ac-flex-start" name="alignC" value="flex-start">
+                    <label for="ac-flex-start">flex-start</label>
                 </li>
-                <li><input type ="radio" class="flexac" id="ac-flex-end" name="alignC" value="flex-end">
-                <label for="ac-flex-end">flex-end</label>
+                <li><input type="radio" class="flexac" id="ac-flex-end" name="alignC" value="flex-end">
+                    <label for="ac-flex-end">flex-end</label>
                 </li>
-                <li><input type ="radio" class="flexac" id="ac-center" name="alignC" value="center">
-                <label for="ac-center">center</label>
+                <li><input type="radio" class="flexac" id="ac-center" name="alignC" value="center">
+                    <label for="ac-center">center</label>
                 </li>
-                <li><input type ="radio" class="flexac" id="ac-space-between" name="alignC" value="space-between">
-                <label for="ac-space-between">space-between</label>
+                <li><input type="radio" class="flexac" id="ac-space-between" name="alignC" value="space-between">
+                    <label for="ac-space-between">space-between</label>
                 </li>
-                <li><input type ="radio" class="flexac" id="ac-space-around" name="alignC" value="space-around">
-                <label for="ac-space-around">space-around</label>
+                <li><input type="radio" class="flexac" id="ac-space-around" name="alignC" value="space-around">
+                    <label for="ac-space-around">space-around</label>
                 </li>
-                <li><input type ="radio" class="flexac" id="ac-space-evenly" name="alignC" value="space-evenly">
-                <label for="ac-space-evenly">space-evenly</label>
+                <li><input type="radio" class="flexac" id="ac-space-evenly" name="alignC" value="space-evenly">
+                    <label for="ac-space-evenly">space-evenly</label>
                 </li>
             </ul>
 
@@ -202,4 +239,5 @@
     </main>
     <script src="script.js"></script>
 </body>
+
 </html>

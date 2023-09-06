@@ -53,6 +53,11 @@ for (i = 0; i < coll.length; i++) {
 //     }
 //   }
 
+// document.querySelectorAll(".box-item.active").forEach(activeBanana => {
+//   activeBanana.style["opacity"]=.3;
+  
+// })
+
 const box = {
   addBox: document.getElementById('addBox'),
   deleteBox: document.getElementById('deleteBox')
@@ -71,6 +76,11 @@ function createBox() {
   newImage.style.width = boxWidthInput.value + 'px';
   newImage.style.height = boxHeightInput.value + 'px';
   newImage.src = './assets/image/banana.png';
+  newImage.setAttribute("index", document.querySelectorAll(".box-item").length+1)
+  newImage.addEventListener('click', (event) => {
+    let clickedEl = event.target;
+    clickedEl.classList.toggle('active')
+  });
   boxgrp.appendChild(newImage);
 }
 

@@ -9,17 +9,28 @@
   --color-gray: gray;
 }
 
+.active {
+  border: 1px solid red;
+}
+
 * {
   font-family: var(--font-family);
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   margin: 1.5em;
   background-color: lightyellow;
+  margin: 0 auto;
 }
 
 h1 {
-  margin-right: 10em;
+  margin: 5rem auto;
 }
 
 h2,
@@ -50,9 +61,9 @@ h3 {
 
 label {
   white-space: nowrap;
-  }
+}
 
-input[type="radio"] {
+input[type='radio'] {
   margin-left: 1.5em;
   margin-right: 0.5em;
 }
@@ -155,63 +166,63 @@ img {
 }
 
 .active:after {
-  content: "\2212";
+  content: '\2212';
 }
 
-  /* media queries for different screen sizes */
+.box-item:before {
+  content: attr(index);
+}
 
-  /* Responsive styles */
+/* media queries for different screen sizes */
+
+/* Responsive styles */
 
 @media only screen and (max-width: 768px) {
+  header {
+    font-size: 1.5em;
+    margin: 2em;
+  }
 
-    header {
-        font-size: 1.5em;
-        margin: 2em;
-    }
+  .display {
+    margin-left: 20px;
+    margin-bottom: 1em;
+  }
 
-    .display {
-        margin-left: 20px;
-        margin-bottom: 1em;
-    }
+  .content {
+    width: 90%;
+    margin-left: 5%;
+    font-size: 0.9em;
+  }
 
-    .content {
-        width: 90%;
-        margin-left: 5%;
-        font-size: 0.9em;
-    }
-
-    .collapsible {
-        width: 90%;
-        font-size: 0.9em;
-    }
-
+  .collapsible {
+    width: 90%;
+    font-size: 0.9em;
+  }
 }
 
 @media only screen and (max-width: 480px) {
+  body {
+    margin: 1em;
+  }
 
-    body {
-        margin: 1em;
-    }
+  header {
+    font-size: 1.2em;
+    margin: 1em;
+  }
 
-    header {
-        font-size: 1.2em;
-        margin: 1em;
-    }
+  .display {
+    margin-left: 10px;
+    margin-bottom: 0.5em;
+  }
 
-    .display {
-        margin-left: 10px;
-        margin-bottom: 0.5em;
-    }
+  .content {
+    width: 90%;
+    margin-left: 5%;
+    font-size: 0.8em;
+  }
 
-    .content {
-        width: 90%;
-        margin-left: 5%;
-        font-size: 0.8em;
-    }
-
-    .collapsible {
-        width: 90%;
-        font-size: 0.8em;
-    }
-
+  .collapsible {
+    width: 90%;
+    font-size: 0.8em;
+  }
 }
