@@ -1,3 +1,1 @@
-# Flexbox Simulator
-
-============================================
+# Banana-Flexbox Simulator
